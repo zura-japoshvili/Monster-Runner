@@ -38,11 +38,15 @@ public class Player : MonoBehaviour
     {
         PlayerMoveKeyboard();
         AnimatePlayer();
-    }
-    private void FixedUpdate()
-    {
+
         PlayerJump();
     }
+
+    private void FixedUpdate()
+    {
+        
+    }
+
     void PlayerMoveKeyboard() {
         movementX = Input.GetAxisRaw("Horizontal");
         transform.position += new Vector3(movementX, 0f, 0f) * moveForce * Time.deltaTime;
@@ -64,7 +68,7 @@ public class Player : MonoBehaviour
     }
     void PlayerJump()
     {
-        if (Input.GetButtonDown("Jump") && isGrounded){
+        if (Input.GetButtonDown("Jump") && isGrounded) {
             isGrounded = false;
             myBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
